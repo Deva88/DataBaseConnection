@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelaz.test.main" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-08-02T10:26:17" hostname="SHRI" time="5.159">
+  <properties/>
+  <testcase name="get_table_data" classname="com.bridgelaz.test.main" time="0.366"/>
+  <testcase name="insert_table_data" classname="com.bridgelaz.test.main" time="1.731"/>
+  <testcase name="update_table_data" classname="com.bridgelaz.test.main" time="1.263"/>
+  <testcase name="delete_row_from_table" classname="com.bridgelaz.test.main" time="1.786"/>
+  <system-out><![CDATA[/** Show the table***/
+1 Devadeva@gmail.com123
+2 Vikashvik@gmail.com456
+3 Devendradevendra@gmail.comdddd@123
+103 LaptopLap@gmail.comlap113
+104 LikeL@gmail.com12345
+/** Show the table***/
+1 Devadeva@gmail.com123
+2 Vikashvik@gmail.com456
+3 Devendradevendra@gmail.comdddd@123
+103 LaptopLap@gmail.comlap113
+104 LikeL@gmail.com12345
+200 ramuramu23@gmail.comramu@589
+/** Show the table***/
+1 Devadeva@gmail.com123
+2 Vikashvik@gmail.com456
+3 Devendradevendra@gmail.comdddd@123
+103 LaptopLap@gmail.comlap113
+104 LikeL@gmail.com12345
+200 Rameshramu23@gmail.comramu@589
+/** Show the table***/
+1 Devadeva@gmail.com123
+2 Vikashvik@gmail.com456
+3 Devendradevendra@gmail.comdddd@123
+103 LaptopLap@gmail.comlap113
+104 LikeL@gmail.com12345
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

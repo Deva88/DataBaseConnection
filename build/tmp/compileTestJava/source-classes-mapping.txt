@@ -1,0 +1,4 @@
+com/bridgelaz/test/Base.java
+ com.bridgelaz.test.Base
+com/bridgelaz/test/main.java
+ com.bridgelaz.test.main
