@@ -3,19 +3,12 @@ package com.bridgelaz.test;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.bridgelaz.test.Base;
 import java.sql.Connection;
-
-
 import java.sql.*;
 
 public class main extends Base {
-
-    private static String root;
-    private static String mysql;
     public int count;
-    //    private Connection con;
-    private static Connection con;
+    private static Connection connections;
     static Connection connection = null;
     private static Statement statement;
     public static String DB_URL = "jdbc:mysql://localhost/spotify";
@@ -23,15 +16,15 @@ public class main extends Base {
     @BeforeTest
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-        return con;
+        Connection connections = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        return connections;
     }
 
     @Test(priority = 0)
     public void get_table_data() throws ClassNotFoundException, SQLException {
 
-        Connection con = this.getConnection();
-        Statement statement = con.createStatement();
+        Connection connections = this.getConnection();
+        Statement statement = connections.createStatement();
         String query = "select * from User";
         System.out.println("/********** Show the table**************/");
         ResultSet res = statement.executeQuery(query);
@@ -49,37 +42,33 @@ public class main extends Base {
 
     @Test(priority = 1)
     public void insert_table_data() throws ClassNotFoundException, SQLException {
-        con = this.getConnection();
-        PreparedStatement pst = con.prepareStatement("insert into User values(?,?,?,?)");
-        pst.setInt(1, 200);
-        pst.setString(2, "ramu");
-        pst.setString(3, "ramu23@gmail.com");
-        pst.setString(4, "ramu@589");
-        pst.executeUpdate();
+        connections = this.getConnection();
+        PreparedStatement  preparedstatement = connections.prepareStatement("insert into User values(?,?,?,?)");
+        preparedstatement.setInt(1, 200);
+        preparedstatement.setString(2, "ramu");
+        preparedstatement.setString(3, "ramu23@gmail.com");
+        preparedstatement.setString(4, "ramu@589");
+        preparedstatement.executeUpdate();
         get_table_data();
     }
 
 
     @Test(priority = 2)
     public void update_table_data() throws ClassNotFoundException, SQLException {
-        con = this.getConnection();
-        PreparedStatement pst = con.prepareStatement("update User set user_name = ? where user_id = ?");
-
-        pst.setString(1, "Ramesh");
-
-        pst.setInt(2, 200);
-
-        // pst.setInt(3,15);
-        pst.executeUpdate();
+        connections = this.getConnection();
+        PreparedStatement preparedstatement = connections.prepareStatement("update User set user_name = ? where user_id = ?");
+        preparedstatement.setString(1, "Ramesh");
+        preparedstatement.setInt(2, 200);
+        preparedstatement.executeUpdate();
         get_table_data();
     }
 
     @Test(priority = 3)
     public void delete_row_from_table() throws ClassNotFoundException, SQLException {
-        con = this.getConnection();
-        PreparedStatement pst = con.prepareStatement("Delete from User where user_id = ?");
-        pst.setInt(1, 200);
-        pst.executeUpdate();
+        connections = this.getConnection();
+        PreparedStatement preparedstatement = connections.prepareStatement("Delete from User where user_id = ?");
+        preparedstatement.setInt(1, 200);
+        preparedstatement.executeUpdate();
         get_table_data();
     }
 

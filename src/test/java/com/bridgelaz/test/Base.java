@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 public class Base {
 
-    public static Connection con;
+    public static Connection connections;
     //Database Username
     public static String DB_USER = "root";
     // Database Password
